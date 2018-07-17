@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoCompare-Api", "CryptoCompare-Api\CryptoCompare-Api.csproj", "{50AC0CB4-049C-4A4E-9D07-75BAC0A0D0A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoCompare-Api.Tests", "CryptoCompare-Api.Tests\CryptoCompare-Api.Tests.csproj", "{DB3AA223-E0EF-4776-9AD6-DDEEC9353935}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50AC0CB4-049C-4A4E-9D07-75BAC0A0D0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AC0CB4-049C-4A4E-9D07-75BAC0A0D0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AC0CB4-049C-4A4E-9D07-75BAC0A0D0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AC0CB4-049C-4A4E-9D07-75BAC0A0D0A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3AA223-E0EF-4776-9AD6-DDEEC9353935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3AA223-E0EF-4776-9AD6-DDEEC9353935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3AA223-E0EF-4776-9AD6-DDEEC9353935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3AA223-E0EF-4776-9AD6-DDEEC9353935}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48A619A6-B3CF-4F4C-8E53-98FEAAF0A9AE}
+	EndGlobalSection
+EndGlobal
