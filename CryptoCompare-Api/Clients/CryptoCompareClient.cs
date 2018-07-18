@@ -23,6 +23,7 @@ namespace CryptoCompare_Api.Clients
         public static CryptoCompareClient Instance => Lazy.Value;
 
         public INewsClient NewsClient => new NewsClient(_httpClient);
+        public IPriceClient PriceClient => new PriceClient(_httpClient);
         
         public void Dispose() => this.Dispose(true);
         
