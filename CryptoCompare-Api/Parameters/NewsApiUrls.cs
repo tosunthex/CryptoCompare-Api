@@ -30,7 +30,7 @@ namespace CryptoCompare_Api.Parameters
             var itsParameters = its == null ? null : its.ToString();
             var langParameters = string.IsNullOrWhiteSpace(lang) ? null : $"lang={lang}";
             var sortParameters = string.IsNullOrWhiteSpace(sort) ? null : $"sort={sort}";
-            var url = new QueryStringService().AppendQueryString("v2/news/", feedsParam, categoriesParam,
+            var url = QueryStringService.AppendQueryString("v2/news/", feedsParam, categoriesParam,
                 excludeCategoriesParam, itsParameters
                 , langParameters, sortParameters);
             return new Uri(BaseMinApiEndPoint, url);

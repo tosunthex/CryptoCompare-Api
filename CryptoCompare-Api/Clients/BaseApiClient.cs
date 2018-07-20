@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using CryptoCompare_Api.Services;
+using CryptoCompare_Api.Models.Responses;
+using Newtonsoft.Json;
 
 namespace CryptoCompare_Api.Clients
 {
@@ -23,12 +24,22 @@ namespace CryptoCompare_Api.Clients
 
         public async Task<TApiResponse> SendRequestAsync<TApiResponse>(HttpMethod httpMethod, Uri resourseUri)
         {
-            var jsonParserService = new JsonParserService();
-
             var response = await _httpClient.SendAsync(new HttpRequestMessage(httpMethod, resourseUri))
                 .ConfigureAwait(false);
-
-            return await jsonParserService.ParseResponse<TApiResponse>(response);
+            response.EnsureSuccessStatusCode();
+            
+            var responseContent = await response.Content.ReadAsStringAsync();
+            try
+            {
+                return JsonConvert.DeserializeObject<TApiResponse>(responseContent);
+            }
+            catch (Exception e)
+            {
+                var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+                var errorMessage =
+                    $"{errorResponse.Type} : {errorResponse.Message} {errorResponse.ErrorSummary} {errorResponse.Path} {e.Message}";
+                throw new HttpRequestException(errorMessage);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
 using Xunit;
@@ -51,6 +52,12 @@ namespace CryptoCompare.Tests
             Assert.Equal("BTC",generateCustom.Raw.Fromsymbol);
             Assert.Equal("USD",generateCustom.Raw.Tosymbol);
             Assert.Equal("Kraken",generateCustom.Raw.Lastmarket);
+        }
+
+        [Fact]
+        public async Task Unlisted_Crypto_Generate_Http_Request_Exception()
+        {
+            HttpRequestException hrEx = await Assert.ThrowsAsync<HttpRequestException>(async () => await _cryptoCompareClient.PriceClient.GetSingleSymbolPrice("XXXX", new string[] { "USD" }));
         }
     }
 }

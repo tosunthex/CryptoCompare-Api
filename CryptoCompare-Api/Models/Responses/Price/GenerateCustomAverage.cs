@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace CryptoCompare_Api.Models.Responses.Price
 {

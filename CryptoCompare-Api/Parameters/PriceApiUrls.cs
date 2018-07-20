@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
@@ -32,26 +31,26 @@ namespace CryptoCompare_Api.Parameters
 
         private static string CreatePriceUrl(string basePath, bool? tryConversation, string[] fsyms, string[] tsyms, string[] e)
         {
-            var fsymsParameters = fsyms== null ? null :$"fsyms={string.Join(",",fsyms)}";
-            var tsymsParameters = $"tsyms={string.Join(",", tsyms)}";
+            var fsymsParameters = QueryStringService.CreateUriParameter("fsyms", fsyms);
+            var tsymsParameters = QueryStringService.CreateUriParameter("tsyms", tsyms);
             var tryConversationParameters = tryConversation== false ? "tryConversation=false" : null;
-            var eParameters = e.GetValue(0) == null ? null :$"e={string.Join(",",e)}";
+            var eParameters = QueryStringService.CreateUriParameter("e", e);
             switch (basePath)
             {
                 case "price":
                 {
-                    fsymsParameters = fsyms.GetValue(0) == null ? null :$"fsym={string.Join(",",fsyms)}";
-                    break;
+                    fsymsParameters = QueryStringService.CreateUriParameter("fsym", fsyms);
+                        break;
                 }
                 case "generateAvg":
                 {
-                    fsymsParameters = fsyms.GetValue(0) == null ? null :$"fsym={string.Join(",",fsyms)}";
-                    tsymsParameters = $"tsym={string.Join(",", tsyms)}";
-                    break;
+                    fsymsParameters = QueryStringService.CreateUriParameter("fsym", fsyms);
+                    tsymsParameters = QueryStringService.CreateUriParameter("tsym", tsyms);
+                        break;
                 }   
             }
             
-            return new QueryStringService().AppendQueryString(basePath, tryConversationParameters, fsymsParameters,
+            return QueryStringService.AppendQueryString(basePath, tryConversationParameters, fsymsParameters,
                 tsymsParameters,eParameters);
         }
         

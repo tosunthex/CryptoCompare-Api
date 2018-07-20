@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CryptoCompare_Api.Models.Responses.Price;
 
 namespace CryptoCompare_Api.Clients

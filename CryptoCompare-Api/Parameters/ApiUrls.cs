@@ -10,10 +10,5 @@ namespace CryptoCompare_Api.Parameters
         public static readonly Uri SiteApiEndpoint = new Uri(
             "https://www.cryptocompare.com/api/data/",
             UriKind.Absolute);
-
-//        private static readonly QueryStringService _queryStringService;
-
-        
-        
     }
 }

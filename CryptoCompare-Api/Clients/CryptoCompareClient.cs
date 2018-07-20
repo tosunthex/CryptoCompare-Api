@@ -24,7 +24,7 @@ namespace CryptoCompare_Api.Clients
 
         public INewsClient NewsClient => new NewsClient(_httpClient);
         public IPriceClient PriceClient => new PriceClient(_httpClient);
-        
+        public IStreamingClient StreamingClient => new StreamingClient(_httpClient);
         public void Dispose() => this.Dispose(true);
         
         internal virtual void Dispose(bool disposing)

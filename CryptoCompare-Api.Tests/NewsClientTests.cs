@@ -51,5 +51,6 @@ namespace CryptoCompare.Tests
             var news = await _cryptoCompareClient.NewsClient.GetNews(feeds,categories, excludeCategories);
             Assert.Equal("News list successfully returned", news.Message);
         }
+
     }
 }

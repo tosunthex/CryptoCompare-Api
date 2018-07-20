@@ -4,7 +4,7 @@ namespace CryptoCompare_Api.Services
 {
     public class QueryStringService
     {
-        public string AppendQueryString(string segment, params string[] parameters)
+        public static string AppendQueryString(string segment, params string[] parameters)
         {
             var encodedParams = parameters
                 .Where(x => !string.IsNullOrWhiteSpace(x))
@@ -13,6 +13,11 @@ namespace CryptoCompare_Api.Services
                 .ToArray();
 
             return encodedParams.Length > 0 ? $"{segment}{string.Join(string.Empty, encodedParams)}" : segment;
+        }
+
+        public static string CreateUriParameter(string urlKey,string[] urlValue)
+        {   
+            return urlValue.GetValue(0) == null ? null : $"{urlKey}={string.Join(",", urlValue)}";
         }
     }
 }
