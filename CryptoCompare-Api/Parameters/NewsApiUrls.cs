@@ -22,14 +22,12 @@ namespace CryptoCompare_Api.Parameters
 
         public static Uri News(string[] feeds, string[] categories, string[] excludeCategories,long? its, string lang, string sort)
         { 
-            var feedsParam = feeds == null ? null : $"feeds={string.Join(",", feeds)}";
-            var categoriesParam = categories == null ? null : $"categories={string.Join(",", categories)}";
-            var excludeCategoriesParam = excludeCategories == null
-                ? null
-                : $"excludeCategories={string.Join(",", excludeCategories)}";
+            var feedsParam = QueryStringService.CreateUriParameter("feeds",feeds);
+            var categoriesParam = QueryStringService.CreateUriParameter("categories", categories);
+            var excludeCategoriesParam = QueryStringService.CreateUriParameter("excludeCategories", excludeCategories);
             var itsParameters = its == null ? null : its.ToString();
-            var langParameters = string.IsNullOrWhiteSpace(lang) ? null : $"lang={lang}";
-            var sortParameters = string.IsNullOrWhiteSpace(sort) ? null : $"sort={sort}";
+            var langParameters = QueryStringService.CreateUriParameter("lang",new []{lang});
+            var sortParameters = QueryStringService.CreateUriParameter("sort", new[] { sort });
             var url = QueryStringService.AppendQueryString("v2/news/", feedsParam, categoriesParam,
                 excludeCategoriesParam, itsParameters
                 , langParameters, sortParameters);

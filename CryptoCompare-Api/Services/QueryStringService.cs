@@ -16,8 +16,12 @@ namespace CryptoCompare_Api.Services
         }
 
         public static string CreateUriParameter(string urlKey,string[] urlValue)
-        {   
-            return urlValue.GetValue(0) == null ? null : $"{urlKey}={string.Join(",", urlValue)}";
+        {
+            if (urlValue == null) { 
+                return null;
+            }
+            
+            return string.IsNullOrWhiteSpace(urlValue[0]) ? null : $"{urlKey}={string.Join(",", urlValue)}";
         }
     }
 }
