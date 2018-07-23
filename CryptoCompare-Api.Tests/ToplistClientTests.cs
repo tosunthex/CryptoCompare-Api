@@ -27,5 +27,26 @@ namespace CryptoCompare.Tests
             Assert.Equal("Success", ex.Response);
             Assert.Equal("BTC", ex.Data.CoinInfo.Name);
         }
+        [Fact]
+        public async Task Toplist_by_Pair_Volume_Response_Success_BTC_TO_USD()
+        {
+            var ex = await _cryptoCompareClient.ToplistClient.GetToplistByPairVolume("BTC");
+            Assert.Equal("Success", ex.Response);
+            Assert.Equal("BTC", ex.VolSymbol);
+        }
+        [Fact]
+        public async Task Toplist_of_Trading_Pair_Response_Success_BTC_TO_USD()
+        {
+            var ex = await _cryptoCompareClient.ToplistClient.GetToplistOfTradingPairs("BTC");
+            Assert.Equal("Success", ex.Response);
+            Assert.Equal("BTC", ex.Data.First().FromSymbol);
+        }
+        [Fact]
+        public async Task Toplist_by_Total_Volume_Response_Success_BTC_TO_USD()
+        {
+            var ex = await _cryptoCompareClient.ToplistClient.GetToplistByTotalVolume("BTC");
+            Assert.Equal("Success", ex.Message);
+            Assert.Equal("BTC", ex.Data.First().CoinInfo.Name);
+        }
     }
 }

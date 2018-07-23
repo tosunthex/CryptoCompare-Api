@@ -29,7 +29,5 @@ namespace CryptoCompare_Api.Parameters
             var url = QueryStringService.AppendQueryString("subs", fsymParameters,tsymParameters);
             return new Uri(BaseMinApiEndPoint,url);
         }
-
-        
     }
 }
