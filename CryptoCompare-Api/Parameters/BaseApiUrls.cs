@@ -2,7 +2,7 @@
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class ApiUrls
+    public class BaseApiUrls
     {
         public static readonly Uri BaseMinApiEndPoint =
             new Uri("https://min-api.cryptocompare.com/data/", UriKind.Absolute);

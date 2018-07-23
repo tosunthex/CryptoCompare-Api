@@ -1,49 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class ToplistApiUrls:ApiUrls
+    public class ToplistApiUrls
     {
         public static Uri TopExchangesVolumeDataByPair(string fsym, string tsym, int? limit)
         {
-            var fsymParameters = $"fsym={fsym}";
-            var tsymParameters = $"tsym={tsym}";
-            var limitParameters = QueryStringService.CreateUriParameter("limit", new[] {limit.ToString()});
-            var url = QueryStringService.AppendQueryString("top/exchanges", fsymParameters, tsymParameters, limitParameters);
-            return  new Uri(BaseMinApiEndPoint,url);
+            return new QueryStringService("top/exchanges").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsym", fsym},
+                {"tsym", tsym},
+                {"limit", limit.ToString()}
+            });
         }
 
         public static Uri TopExchangesFullDataByPair(string fsym, string tsym, int? limit)
         {
-            var fsymParameters = $"fsym={fsym}";
-            var tsymParameters = $"tsym={tsym}";
-            var limitParameters = QueryStringService.CreateUriParameter("limit", new[] { limit.ToString() });
-            var url = QueryStringService.AppendQueryString("top/exchanges/full", fsymParameters, tsymParameters, limitParameters);
-            return new Uri(BaseMinApiEndPoint, url);
+            
+            return new QueryStringService("top/exchanges/full").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsym", fsym},
+                {"tsym", tsym},
+                {"limit", limit.ToString()}
+            });
         }
 
         public static Uri ToplistByPairVolume(string tsym,int? limit)
         {
-            var tsymParameters = $"tsym={tsym}";
-            var limitParameters = QueryStringService.CreateUriParameter("limit", new[] { limit.ToString() });
-            var url = QueryStringService.AppendQueryString("top/volumes", tsymParameters, limitParameters);
-            return new Uri(BaseMinApiEndPoint, url);
+            return new QueryStringService("top/volumes").AppendQueryString(new Dictionary<string, string>
+            {
+                {"tsym", tsym},
+                {"limit", limit.ToString()}
+            });
         }
         public static Uri ToplistOfTradingPairs(string fsym, int? limit)
         {
-            var fsymParameters = $"fsym={fsym}";
-            var limitParameters = QueryStringService.CreateUriParameter("limit", new[] { limit.ToString() });
-            var url = QueryStringService.AppendQueryString("top/pairs", fsymParameters, limitParameters);
-            return new Uri(BaseMinApiEndPoint, url);
+            return new QueryStringService("top/pairs").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsym", fsym},
+                {"limit", limit.ToString()}
+            });
         }
         public static Uri ToplistByTotalVolume(string tsym, int? limit, int? page)
         {
-            var tsymParameters = $"tsym={tsym}";
-            var limitParameters = QueryStringService.CreateUriParameter("limit", new[] { limit.ToString() });
-            var pageParameters = QueryStringService.CreateUriParameter("page", new[] { page.ToString() });
-            var url = QueryStringService.AppendQueryString("top/totalvol", tsymParameters, limitParameters, pageParameters);
-            return new Uri(BaseMinApiEndPoint, url);
+            return new QueryStringService("top/totalvol").AppendQueryString(new Dictionary<string, string>
+            {
+                {"tsym", tsym},
+                {"page", page.ToString()},
+                {"limit", limit.ToString()}
+            });
         }
     }
 }

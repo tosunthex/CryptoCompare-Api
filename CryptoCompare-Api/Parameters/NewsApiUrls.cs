@@ -1,37 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class NewsApiUrls:ApiUrls
+    public class NewsApiUrls:BaseApiUrls
     {
         public static Uri NewsFeeds()
         {
-            return new Uri(BaseMinApiEndPoint,"news/feeds");
+            return new QueryStringService("news/feeds").AppendQueryString(new Dictionary<string, string>());
         }
 
         public static Uri NewsCategories()
         {
-            return new Uri(BaseMinApiEndPoint, "news/categories");
+            return new QueryStringService("news/categories").AppendQueryString(new Dictionary<string, string>());
         }
 
         public static Uri FeedsAndCategories()
         {
-            return new Uri(BaseMinApiEndPoint, "news/feedsandcategories");
+            return new QueryStringService("news/feedsandcategories").AppendQueryString(new Dictionary<string, string>());
         }
 
         public static Uri News(string[] feeds, string[] categories, string[] excludeCategories,long? its, string lang, string sort)
         { 
-            var feedsParam = QueryStringService.CreateUriParameter("feeds",feeds);
-            var categoriesParam = QueryStringService.CreateUriParameter("categories", categories);
-            var excludeCategoriesParam = QueryStringService.CreateUriParameter("excludeCategories", excludeCategories);
-            var itsParameters = its == null ? null : its.ToString();
-            var langParameters = QueryStringService.CreateUriParameter("lang",new []{lang});
-            var sortParameters = QueryStringService.CreateUriParameter("sort", new[] { sort });
-            var url = QueryStringService.AppendQueryString("v2/news/", feedsParam, categoriesParam,
-                excludeCategoriesParam, itsParameters
-                , langParameters, sortParameters);
-            return new Uri(BaseMinApiEndPoint, url);
+            
+            return new QueryStringService("v2/news/").AppendQueryString(new Dictionary<string, string>
+            {
+                {"feeds", feeds!= null ? string.Join(",",feeds): null },
+                {"categories", categories!= null ? string.Join(",",categories): null },
+                {"excludeCategories", excludeCategories != null ? string.Join(",",excludeCategories): null},
+                {"its",its.ToString()},
+                {"lang",lang},
+                {"sort", sort },
+            });
         }
     }
 }

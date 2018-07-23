@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
-using CryptoCompare_Api.Models.Responses.Streaming;
 using Xunit;
 
 namespace CryptoCompare.Tests

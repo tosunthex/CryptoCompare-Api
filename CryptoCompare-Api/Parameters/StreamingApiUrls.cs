@@ -1,33 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class StreamingApiUrls:ApiUrls
+    public class StreamingApiUrls:BaseApiUrls
     {
         public static Uri SubsWatchlist(string[] fsyms, string tsym)
         {
-            var fsymsParameters = QueryStringService.CreateUriParameter("fsyms", fsyms);
-            var tsymParameters = $"tsym={tsym}";
-            var url = QueryStringService.AppendQueryString("subsWatchlist", fsymsParameters, tsymParameters);
-            return new Uri(BaseMinApiEndPoint,url);
+            return new QueryStringService("subsWatchlist").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsyms", string.Join(",", fsyms)},
+                {"tsym", tsym}
+            });
         }
 
         public static Uri CoinGeneralInfo(string[] fsyms,string tsym)
         {
-            var fsymsParameters = QueryStringService.CreateUriParameter("fsyms", fsyms);
-            var tsymParameters = $"tsym={tsym}";
-            var url = QueryStringService.AppendQueryString("coin/generalinfo", fsymsParameters, tsymParameters);
-            return new Uri(BaseMinApiEndPoint,url);
+            return new QueryStringService("coin/generalinfo").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsyms", string.Join(",", fsyms)},
+                {"tsym", tsym}
+            });
         }
 
         public static Uri SubsByPair(string fsym,string[] tsyms)
         {
-            var fsymParameters = $"fsym={fsym}";
-            var tsymParameters = QueryStringService.CreateUriParameter("tsyms", tsyms);
-
-            var url = QueryStringService.AppendQueryString("subs", fsymParameters,tsymParameters);
-            return new Uri(BaseMinApiEndPoint,url);
+            return new QueryStringService("subs").AppendQueryString(new Dictionary<string, string>
+            {
+                {"fsym", fsym},
+                {"tsyms", string.Join(",",tsyms)}
+            });
         }
     }
 }
