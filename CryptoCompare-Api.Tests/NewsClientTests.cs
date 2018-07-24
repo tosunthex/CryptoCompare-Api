@@ -45,9 +45,9 @@ namespace CryptoCompare.Tests
         [Fact]
         public async Task Check_Multiple_Feeds()
         {
-            var feeds = new string[]{"coindesk","cryptocompare"};
-            var categories = new string[] {"ICO"};
-            var excludeCategories = new string[] {"Exchange", "BTC"};
+            var feeds = new[]{"coindesk","cryptocompare"};
+            var categories = new [] {"ICO"};
+            var excludeCategories = new [] {"Exchange", "BTC"};
             var news = await _cryptoCompareClient.NewsClient.GetNews(feeds,categories, excludeCategories);
             Assert.Equal("News list successfully returned", news.Message);
         }

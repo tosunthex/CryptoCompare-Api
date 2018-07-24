@@ -34,7 +34,7 @@ namespace CryptoCompare_Api.Parameters
             {
                 case "price":
                 {
-                    return new QueryStringService(basePath).AppendQueryString(new Dictionary<string, string>
+                    return QueryStringService.AppendQueryString(basePath,new Dictionary<string, string>
                     {
                         {"fsym", string.Join(",",fsyms)},
                         {"tsyms", string.Join(",",tsyms)},
@@ -45,7 +45,7 @@ namespace CryptoCompare_Api.Parameters
                 }
                 case "generateAvg":
                 {
-                    return new QueryStringService(basePath).AppendQueryString(new Dictionary<string, string>
+                    return QueryStringService.AppendQueryString(basePath,new Dictionary<string, string>
                     {
                         {"fsym", string.Join(",",fsyms)},
                         {"tsym", string.Join(",",tsyms)},
@@ -55,7 +55,7 @@ namespace CryptoCompare_Api.Parameters
                     break;
                 }
                 default:
-                    return new QueryStringService(basePath).AppendQueryString(new Dictionary<string, string>
+                    return QueryStringService.AppendQueryString(basePath,new Dictionary<string, string>
                     {
                         {"fsyms", string.Join(",",fsyms)},
                         {"tsyms", string.Join(",",tsyms)},

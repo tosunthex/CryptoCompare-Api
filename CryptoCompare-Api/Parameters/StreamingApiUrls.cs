@@ -8,7 +8,7 @@ namespace CryptoCompare_Api.Parameters
     {
         public static Uri SubsWatchlist(string[] fsyms, string tsym)
         {
-            return new QueryStringService("subsWatchlist").AppendQueryString(new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("subsWatchlist",new Dictionary<string, string>
             {
                 {"fsyms", string.Join(",", fsyms)},
                 {"tsym", tsym}
@@ -17,7 +17,7 @@ namespace CryptoCompare_Api.Parameters
 
         public static Uri CoinGeneralInfo(string[] fsyms,string tsym)
         {
-            return new QueryStringService("coin/generalinfo").AppendQueryString(new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("subsWatchlist",new Dictionary<string, string>
             {
                 {"fsyms", string.Join(",", fsyms)},
                 {"tsym", tsym}
@@ -26,7 +26,7 @@ namespace CryptoCompare_Api.Parameters
 
         public static Uri SubsByPair(string fsym,string[] tsyms)
         {
-            return new QueryStringService("subs").AppendQueryString(new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("subs",new Dictionary<string, string>
             {
                 {"fsym", fsym},
                 {"tsyms", string.Join(",",tsyms)}

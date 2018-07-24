@@ -7,16 +7,9 @@ namespace CryptoCompare_Api.Services
 {
     public class QueryStringService:BaseApiUrls
     {
-        private static string _path;
-        private static List<string> _urlParameters;
-
-        public QueryStringService(string path)
+        public static Uri AppendQueryString(string path,Dictionary<string,string> parameter)
         {
-            _urlParameters = new List<string>();
-            _path = path;
-        }
-        public Uri AppendQueryString(Dictionary<string,string> parameter)
-        {
+            var _urlParameters = new List<string>();
             foreach (var par in parameter)
             {
                 _urlParameters.Add(string.IsNullOrWhiteSpace(par.Value) ? null : $"{par.Key}={par.Value}");    
@@ -28,8 +21,8 @@ namespace CryptoCompare_Api.Services
                 .Select((x, i) => i > 0 ? $"&{x}" : $"?{x}")
                 .ToArray();
 
-            var url = encodedParams.Length > 0 ? $"{_path}{string.Join(string.Empty, encodedParams)}" : _path;
+            var url = encodedParams.Length > 0 ? $"{path}{string.Join(string.Empty, encodedParams)}" : path;
             return new Uri(BaseMinApiEndPoint, url);
-        }
+            }
     }
 }
