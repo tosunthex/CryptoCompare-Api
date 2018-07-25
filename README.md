@@ -1,8 +1,7 @@
 # CryptoCompare-Api
 .Net and .Net Core async Crypto Compare client for newest Min-API
-[![Build status](https://ci.appveyor.com/api/projects/status/iaccxxc7mb6us3yl/branch/master?svg=true)](https://ci.appveyor.com/project/tosunthex/cryptocompare-api/branch/master)
 
-[![NuGet](https://img.shields.io/nuget/v/CryptoCompareAsyncApi.svg)](https://www.nuget.org/packages/CryptoCompareAsyncApi/)
+[![Build status](https://ci.appveyor.com/api/projects/status/iaccxxc7mb6us3yl/branch/master?svg=true)](https://ci.appveyor.com/project/tosunthex/cryptocompare-api/branch/master)[![NuGet](https://img.shields.io/nuget/v/CryptoCompareAsyncApi.svg)](https://www.nuget.org/packages/CryptoCompareAsyncApi/)
 
 
 ## Installation
