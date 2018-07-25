@@ -27,7 +27,8 @@ namespace CryptoCompare_Api.Clients
         public IStreamingClient StreamingClient => new StreamingClient(_httpClient);
         public IToplistClient ToplistClient => new ToplistClient(_httpClient);
         public IHistorocalDataClient HistoricalDataClient => new HistoricalDataClient(_httpClient);
-        
+        public IOtherClient OtherClient => new OtherClient(_httpClient);
+
         public void Dispose() => this.Dispose(true);
         
         internal virtual void Dispose(bool disposing)

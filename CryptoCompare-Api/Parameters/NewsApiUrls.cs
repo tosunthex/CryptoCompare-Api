@@ -4,7 +4,7 @@ using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class NewsApiUrls:BaseApiUrls
+    public static class NewsApiUrls
     {
         public static Uri NewsFeeds()
         {

@@ -13,5 +13,7 @@ namespace CryptoCompare_Api.Clients
         IToplistClient ToplistClient { get; }
         
         IHistorocalDataClient HistoricalDataClient { get; }
+        
+        IOtherClient OtherClient { get; }
     }
 }

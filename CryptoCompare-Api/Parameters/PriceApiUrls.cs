@@ -5,7 +5,7 @@ using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class PriceApiUrls
+    public static class PriceApiUrls
     {
         public static Uri MultipleSymbolFullData(string[] fsyms,string[] tsyms,bool? tryConversation,string e = null)
         {
