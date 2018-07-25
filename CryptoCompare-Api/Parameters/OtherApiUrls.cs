@@ -8,20 +8,20 @@ namespace CryptoCompare_Api.Parameters
     {
         public static Uri CoinList()
         {
-            return QueryStringService.AppendQueryString("all/coinlist",new Dictionary<string, string>());
+            return QueryStringService.AppendQueryString("all/coinlist", new Dictionary<string, string>());
         }
 
         public static Uri SocialStats(int id)
         {
-            return QueryStringService.AppendQueryString("socialstats/",new Dictionary<string, string> 
+            return QueryStringService.AppendQueryString("socialstats/", new Dictionary<string, string>
             {
-                {"id",id.ToString()}
-            },false);
+                {"id", id.ToString()}
+            }, false);
         }
 
         public static Uri MiningEquipment()
         {
-            return QueryStringService.AppendQueryString("miningequipment/",new Dictionary<string, string>(),false);
+            return QueryStringService.AppendQueryString("miningequipment/", new Dictionary<string, string>(), false);
         }
     }
 }

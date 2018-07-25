@@ -5,8 +5,7 @@ using CryptoCompare_Api.Parameters;
 
 namespace CryptoCompare_Api.Clients
 {
-    public class StreamingClient:BaseApiClient,IStreamingClient
-
+    public class StreamingClient : BaseApiClient, IStreamingClient
     {
         public StreamingClient(HttpClient httpClient) : base(httpClient)
         {
@@ -14,7 +13,7 @@ namespace CryptoCompare_Api.Clients
 
         public async Task<SubsWatchlist> GetSubsWatchList(string[] fsyms, string tsym)
         {
-            return await GetAsync<SubsWatchlist>(StreamingApiUrls.SubsWatchlist(fsyms,tsym)).ConfigureAwait(false);
+            return await GetAsync<SubsWatchlist>(StreamingApiUrls.SubsWatchlist(fsyms, tsym)).ConfigureAwait(false);
         }
 
         public async Task<CoinGeneralInfo> GetCoinGeneralInfo(string[] fsyms, string tsym)

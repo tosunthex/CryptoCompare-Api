@@ -4,18 +4,18 @@ using CryptoCompare_Api.Services;
 
 namespace CryptoCompare_Api.Parameters
 {
-    public class StreamingApiUrls:BaseApiUrls
+    public class StreamingApiUrls : BaseApiUrls
     {
         public static Uri SubsWatchlist(string[] fsyms, string tsym)
         {
-            return QueryStringService.AppendQueryString("subsWatchlist",new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("subsWatchlist", new Dictionary<string, string>
             {
                 {"fsyms", string.Join(",", fsyms)},
                 {"tsym", tsym}
             });
         }
 
-        public static Uri CoinGeneralInfo(string[] fsyms,string tsym)
+        public static Uri CoinGeneralInfo(string[] fsyms, string tsym)
         {
             return QueryStringService.AppendQueryString("coin/generalinfo", new Dictionary<string, string>
             {
@@ -24,12 +24,12 @@ namespace CryptoCompare_Api.Parameters
             });
         }
 
-        public static Uri SubsByPair(string fsym,string[] tsyms)
+        public static Uri SubsByPair(string fsym, string[] tsyms)
         {
-            return QueryStringService.AppendQueryString("subs",new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("subs", new Dictionary<string, string>
             {
                 {"fsym", fsym},
-                {"tsyms", string.Join(",",tsyms)}
+                {"tsyms", string.Join(",", tsyms)}
             });
         }
     }

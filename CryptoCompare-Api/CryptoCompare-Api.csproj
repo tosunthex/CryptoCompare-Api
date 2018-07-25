@@ -3,11 +3,11 @@
     <TargetFrameworks>netstandard2.0;netstandard1.3;netstandard1.5;net461;net45</TargetFrameworks>
     <IncludeSymbols>True</IncludeSymbols>
     <PackageVersion>1.0.0</PackageVersion>
-    <title>Coinmarketcap Api V2 Client</title>
+    <title>Crypto Compare Async Api</title>
     <Authors>Levent Saatci</Authors>
     <Description>.Net and .Net Core async client for Crypto Compare newest Min-API</Description>
     <Copyright>Copyright 2018 (c). All rights reserved.</Copyright>
-    <PackageTags>cryptocompare-api cryptocurrency bitcoin dotnet-core dotnet-standard dotnet async cryptocurrencies cryptocompare</PackageTags>
+    <PackageTags>cryptocompare cryptocompare-api cryptocurrency bitcoin eth etherium btc xrp ripple ltc litecoin dotnet-core dotnet-standard dotnet async cryptocurrencies</PackageTags>
     <PackageLicenseUrl>http://choosealicense.com/licenses/bsd-2-clause/</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/tosunthex/CryptoCompare-Api</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -16,9 +16,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageId>CryptoCompareAsyncApi</PackageId>
     <Product>Crypto Compare Async Api</Product>
-    <RepositoryUrl>https://github.com/tosunthex/CoinMarketCap-Api/tree/master</RepositoryUrl>
-    <PackageReleaseNotes>for more information please check the project page or
-https://min-api.cryptocompare.com/</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/tosunthex/CryptoCompare-Api/tree/master</RepositoryUrl>
+    <PackageReleaseNotes>for more information please check the project page or https://min-api.cryptocompare.com/</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\CryptoCompare-Api.xml</DocumentationFile>
@@ -35,7 +34,6 @@ https://min-api.cryptocompare.com/</PackageReleaseNotes>
       <Version>5.2.2</Version>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
     <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
       <Version>5.2.2</Version>

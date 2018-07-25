@@ -8,23 +8,28 @@ namespace CryptoCompare.Tests
 {
     public class NewsClientTests
     {
-        private readonly CryptoCompareClient _cryptoCompareClient;
         public NewsClientTests()
         {
             _cryptoCompareClient = CryptoCompareClient.Instance;
         }
+
+        private readonly CryptoCompareClient _cryptoCompareClient;
+
         [Fact]
-        public async Task First_Provider_Must_Be_CryptoCompare()
+        public async Task Check_Multiple_Feeds()
         {
-            var newsFeeds = await _cryptoCompareClient.NewsClient.GetNewsFeeds();
-            Assert.Equal("cryptocompare",newsFeeds.First().Key);
+            var feeds = new[] {"coindesk", "cryptocompare"};
+            var categories = new[] {"ICO"};
+            var excludeCategories = new[] {"Exchange", "BTC"};
+            var news = await _cryptoCompareClient.NewsClient.GetNews(feeds, categories, excludeCategories);
+            Assert.Equal("News list successfully returned", news.Message);
         }
 
         [Fact]
-        public async Task News_Category()
+        public async Task Check_News_Client_Success()
         {
-            var newsCategory = await _cryptoCompareClient.NewsClient.GetNewsCategories();
-            Assert.Equal("BTC",newsCategory.First().CategoryName);
+            var news = await _cryptoCompareClient.NewsClient.GetNews();
+            Assert.Equal("News list successfully returned", news.Message);
         }
 
         [Fact]
@@ -32,25 +37,22 @@ namespace CryptoCompare.Tests
         {
             var newsAndCategories = await _cryptoCompareClient.NewsClient.GetFeedsAndCategories();
             Console.WriteLine(newsAndCategories.Data.NewsCategories.First().CategoryName);
-            Assert.Equal("BTC",newsAndCategories.Data.NewsCategories.First().CategoryName);
+            Assert.Equal("BTC", newsAndCategories.Data.NewsCategories.First().CategoryName);
             Assert.Equal("cryptocompare", newsAndCategories.Data.NewsFeeds.First().Key);
         }
 
         [Fact]
-        public async Task Check_News_Client_Success()
+        public async Task First_Provider_Must_Be_CryptoCompare()
         {
-            var news = await _cryptoCompareClient.NewsClient.GetNews();
-            Assert.Equal("News list successfully returned",news.Message);
-        }
-        [Fact]
-        public async Task Check_Multiple_Feeds()
-        {
-            var feeds = new[]{"coindesk","cryptocompare"};
-            var categories = new [] {"ICO"};
-            var excludeCategories = new [] {"Exchange", "BTC"};
-            var news = await _cryptoCompareClient.NewsClient.GetNews(feeds,categories, excludeCategories);
-            Assert.Equal("News list successfully returned", news.Message);
+            var newsFeeds = await _cryptoCompareClient.NewsClient.GetNewsFeeds();
+            Assert.Equal("cryptocompare", newsFeeds.First().Key);
         }
 
+        [Fact]
+        public async Task News_Category()
+        {
+            var newsCategory = await _cryptoCompareClient.NewsClient.GetNewsCategories();
+            Assert.Equal("BTC", newsCategory.First().CategoryName);
+        }
     }
 }

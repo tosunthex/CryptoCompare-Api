@@ -2,15 +2,12 @@
 
 namespace CryptoCompare_Api.Models.Responses.Toplist
 {
-    public partial class TopExchangesFullDataByPair
+    public class TopExchangesFullDataByPair
     {
-        [JsonProperty("Response")]
-        public string Response { get; set; }
+        [JsonProperty("Response")] public string Response { get; set; }
 
-        [JsonProperty("Message")]
-        public string Message { get; set; }
+        [JsonProperty("Message")] public string Message { get; set; }
 
-        [JsonProperty("Data")]
-        public TopExchangesFullDataByPairData Data { get; set; }
+        [JsonProperty("Data")] public TopExchangesFullDataByPairData Data { get; set; }
     }
 }

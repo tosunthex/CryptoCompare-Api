@@ -2,8 +2,7 @@
 
 namespace CryptoCompare_Api.Models.Responses.Price
 {
-    public class MultipleSymbolFullDataDisplay:Dictionary<string,IDictionary<string,DisplayCryptoData>>
+    public class MultipleSymbolFullDataDisplay : Dictionary<string, IDictionary<string, DisplayCryptoData>>
     {
-        
     }
 }

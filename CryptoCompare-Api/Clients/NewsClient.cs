@@ -6,8 +6,12 @@ using CryptoCompare_Api.Parameters;
 
 namespace CryptoCompare_Api.Clients
 {
-    public class NewsClient:BaseApiClient,INewsClient
+    public class NewsClient : BaseApiClient, INewsClient
     {
+        public NewsClient(HttpClient httpClient) : base(httpClient)
+        {
+        }
+
         public async Task<IEnumerable<NewsFeed>> GetNewsFeeds()
         {
             return await GetAsync<IEnumerable<NewsFeed>>(NewsApiUrls.NewsFeeds()).ConfigureAwait(false);
@@ -23,14 +27,12 @@ namespace CryptoCompare_Api.Clients
             return await GetAsync<FeedAndCategory>(NewsApiUrls.FeedsAndCategories()).ConfigureAwait(false);
         }
 
-        public async Task<News> GetNews(string[] feeds = null, string[] categories = null, string[] excludeCategories = null, long? its = null,
+        public async Task<News> GetNews(string[] feeds = null, string[] categories = null,
+            string[] excludeCategories = null, long? its = null,
             string lang = null, string sort = null)
         {
-            return await GetAsync<News>(NewsApiUrls.News(feeds,categories,excludeCategories,its,lang,sort)).ConfigureAwait(false);
-        }
-
-        public NewsClient(HttpClient httpClient) : base(httpClient)
-        {
+            return await GetAsync<News>(NewsApiUrls.News(feeds, categories, excludeCategories, its, lang, sort))
+                .ConfigureAwait(false);
         }
     }
 }

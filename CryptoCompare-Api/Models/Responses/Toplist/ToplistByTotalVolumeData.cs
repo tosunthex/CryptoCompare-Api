@@ -5,10 +5,8 @@ namespace CryptoCompare_Api.Models.Responses.Toplist
 {
     public class ToplistByTotalVolumeData
     {
-        [JsonProperty("CoinInfo")]
-        public CoinInfo CoinInfo { get; set; }
+        [JsonProperty("CoinInfo")] public CoinInfo CoinInfo { get; set; }
 
-        [JsonProperty("ConversionInfo")]
-        public ConversionInfo ConversionInfo { get; set; }
+        [JsonProperty("ConversionInfo")] public ConversionInfo ConversionInfo { get; set; }
     }
 }

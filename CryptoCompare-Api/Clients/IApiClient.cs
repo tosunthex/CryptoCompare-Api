@@ -7,7 +7,7 @@ namespace CryptoCompare_Api.Clients
     public interface IApiClient
     {
         /// <summary>
-        /// Sends an API request async using GET Method
+        ///     Sends an API request async using GET Method
         /// </summary>
         /// <param name="resourceUri">The resouce uri path</param>
         /// <typeparam name="TApiResponse">Response type of method</typeparam>
@@ -15,7 +15,7 @@ namespace CryptoCompare_Api.Clients
         Task<TApiResponse> GetAsync<TApiResponse>(Uri resourceUri);
 
         /// <summary>
-        /// Sends an API request async
+        ///     Sends an API request async
         /// </summary>
         /// <param name="httpMethod">Http Method</param>
         /// <param name="resourseUri">The resouce uri path</param>

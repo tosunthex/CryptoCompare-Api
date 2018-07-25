@@ -2,7 +2,7 @@
 
 namespace CryptoCompare_Api.Models.Responses.Streaming
 {
-    public class SubsByPair:Dictionary<string,SubsByPairData>
-    {   
+    public class SubsByPair : Dictionary<string, SubsByPairData>
+    {
     }
 }

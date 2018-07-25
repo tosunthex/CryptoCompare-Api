@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 namespace CryptoCompare_Api.Clients
 {
     /// <summary>
-    /// Base Api Client
+    ///     Base Api Client
     /// </summary>
-    public class BaseApiClient:IApiClient
+    public class BaseApiClient : IApiClient
     {
         private readonly HttpClient _httpClient;
 
@@ -17,9 +17,10 @@ namespace CryptoCompare_Api.Clients
         {
             _httpClient = httpClient;
         }
+
         public Task<TApiResponse> GetAsync<TApiResponse>(Uri resourceUri)
         {
-            return this.SendRequestAsync<TApiResponse>(HttpMethod.Get, resourceUri);
+            return SendRequestAsync<TApiResponse>(HttpMethod.Get, resourceUri);
         }
 
         public async Task<TApiResponse> SendRequestAsync<TApiResponse>(HttpMethod httpMethod, Uri resourseUri)
@@ -27,7 +28,7 @@ namespace CryptoCompare_Api.Clients
             var response = await _httpClient.SendAsync(new HttpRequestMessage(httpMethod, resourseUri))
                 .ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
-            
+
             var responseContent = await response.Content.ReadAsStringAsync();
             try
             {

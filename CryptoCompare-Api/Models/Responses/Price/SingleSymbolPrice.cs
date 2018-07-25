@@ -2,8 +2,7 @@
 
 namespace CryptoCompare_Api.Models.Responses.Price
 {
-    public class SingleSymbolPrice:Dictionary<string,string>
+    public class SingleSymbolPrice : Dictionary<string, string>
     {
-        
     }
 }
