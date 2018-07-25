@@ -1,9 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>CryptoCompare_Api</RootNamespace>
+    <TargetFrameworks>netstandard2.0;netstandard1.3;netstandard1.5;net461;net45</TargetFrameworks>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PackageVersion>1.0.0</PackageVersion>
+    <title>Coinmarketcap Api V2 Client</title>
+    <Authors>Levent Saatci</Authors>
+    <Description>.Net and .Net Core async client for Crypto Compare newest Min-API</Description>
+    <Copyright>Copyright 2018 (c). All rights reserved.</Copyright>
+    <PackageTags>cryptocompare-api cryptocurrency bitcoin dotnet-core dotnet-standard dotnet async cryptocurrencies cryptocompare</PackageTags>
+    <PackageLicenseUrl>http://choosealicense.com/licenses/bsd-2-clause/</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/tosunthex/CryptoCompare-Api</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <PackageIconUrl>https://www.cryptocompare.com/media/20567/cc-logo-vert.png</PackageIconUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>CryptoCompareAsyncApi</PackageId>
+    <Product>Crypto Compare Async Api</Product>
+    <RepositoryUrl>https://github.com/tosunthex/CoinMarketCap-Api/tree/master</RepositoryUrl>
+    <PackageReleaseNotes>for more information please check the project page or
+https://min-api.cryptocompare.com/</PackageReleaseNotes>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\CryptoCompare-Api.xml</DocumentationFile>
+    <DefineConstants>NETSTANDARD;NETSTANDARD2_0;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\CryptoCompare-Api.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
+      <Version>5.2.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
+      <Version>5.2.2</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>
