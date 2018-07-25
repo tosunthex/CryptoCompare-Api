@@ -40,7 +40,6 @@ namespace CryptoCompare_Api.Parameters
                         {"tryConversation", tryConversation.ToString()},
                         {"e", e == null ? null : string.Join(",", e)}
                     });
-                    break;
                 }
                 case "generateAvg":
                 {
@@ -51,7 +50,6 @@ namespace CryptoCompare_Api.Parameters
                         {"tryConversation", tryConversation.ToString()},
                         {"e", e == null ? null : string.Join(",", e)}
                     });
-                    break;
                 }
                 default:
                     return QueryStringService.AppendQueryString(basePath, new Dictionary<string, string>

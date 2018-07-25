@@ -42,7 +42,7 @@ namespace CryptoCompare_Api.Clients
         ///     If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion.
         ///     If the oposite pair trades we invert it (eg.: BTC-XMR)
         /// </summary>
-        /// <param name="fsyms">Comma separated cryptocurrency symbols list [Max character length: 300]</param>
+        /// <param name="fsym">Comma separated cryptocurrency symbols list [Max character length: 300]</param>
         /// <param name="tsyms">Comma separated cryptocurrency symbols list to convert into [Max character length: 100]</param>
         /// <param name="tryConversion">If set to false, it will try to get only direct trading values</param>
         /// <param name="e">
