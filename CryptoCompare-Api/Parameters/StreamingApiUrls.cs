@@ -17,7 +17,7 @@ namespace CryptoCompare_Api.Parameters
 
         public static Uri CoinGeneralInfo(string[] fsyms,string tsym)
         {
-            return QueryStringService.AppendQueryString("subsWatchlist",new Dictionary<string, string>
+            return QueryStringService.AppendQueryString("coin/generalinfo", new Dictionary<string, string>
             {
                 {"fsyms", string.Join(",", fsyms)},
                 {"tsym", tsym}
