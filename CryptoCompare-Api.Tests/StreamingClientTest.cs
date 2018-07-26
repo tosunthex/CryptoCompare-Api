@@ -43,7 +43,7 @@ namespace CryptoCompare.Tests
         [Fact]
         public async Task Sub_Watchlist_Required_Parameter_Error()
         {
-            var hrEx = await Assert.ThrowsAsync<HttpRequestException>(async () =>
+            await Assert.ThrowsAsync<HttpRequestException>(async () =>
                 await _cryproCompareClient.StreamingClient.GetSubsWatchList(new[] {""}, ""));
         }
 
