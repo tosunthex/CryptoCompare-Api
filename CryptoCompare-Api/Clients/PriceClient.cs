@@ -12,7 +12,7 @@ namespace CryptoCompare_Api.Clients
         }
 
         public async Task<MultipleSymbolFullData> GetMultipleSymbolFullData(string[] fsyms, string[] tsyms,
-            bool? tryConversion = null, string e = null)
+            bool tryConversion = false, string e = null)
         {
             return await GetAsync<MultipleSymbolFullData>(
                     PriceApiUrls.MultipleSymbolFullData(fsyms, tsyms, tryConversion, e))
@@ -20,14 +20,14 @@ namespace CryptoCompare_Api.Clients
         }
 
         public async Task<MultipleSymbolPrice> GetMultipleSymbolPrice(string[] fsyms, string[] tsyms,
-            bool? tryConversion = null, string e = null)
+            bool tryConversion = false, string e = null)
         {
             return await GetAsync<MultipleSymbolPrice>(PriceApiUrls.MultipleSymbolPrice(fsyms, tsyms, tryConversion, e))
                 .ConfigureAwait(false);
         }
 
         public async Task<SingleSymbolPrice> GetSingleSymbolPrice(string fsym, string[] tsyms,
-            bool? tryConversion = null, string e = null)
+            bool tryConversion = false, string e = null)
         {
             return await GetAsync<SingleSymbolPrice>(PriceApiUrls.SingleSymbolPrice(fsym, tsyms, tryConversion, e));
         }

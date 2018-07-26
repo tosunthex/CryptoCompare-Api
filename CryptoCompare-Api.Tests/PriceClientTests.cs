@@ -59,7 +59,7 @@ namespace CryptoCompare.Tests
         [Fact]
         public async Task Unlisted_Crypto_Generate_Http_Request_Exception()
         {
-            var hrEx = await Assert.ThrowsAsync<HttpRequestException>(async () =>
+            await Assert.ThrowsAsync<HttpRequestException>(async () =>
                 await _cryptoCompareClient.PriceClient.GetSingleSymbolPrice("XXXX", new[] {"USD"}));
         }
     }

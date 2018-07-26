@@ -2,7 +2,7 @@
 
 namespace CryptoCompare_Api.Models.Responses.Toplist
 {
-    public class ToplistofTradingPairData
+    public class ToplistData
     {
         [JsonProperty("exchange")] public string Exchange { get; set; }
 
