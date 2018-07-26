@@ -20,7 +20,7 @@ namespace CryptoCompare_Api.Clients
         /// </param>
         /// <returns></returns>
         Task<MultipleSymbolFullData> GetMultipleSymbolFullData(string[] fsyms, string[] tsyms,
-            bool? tryConversion = null,
+            bool tryConversion = false,
             string e = null);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace CryptoCompare_Api.Clients
         ///     30]
         /// </param>
         /// <returns></returns>
-        Task<MultipleSymbolPrice> GetMultipleSymbolPrice(string[] fsyms, string[] tsyms, bool? tryConversion = null,
+        Task<MultipleSymbolPrice> GetMultipleSymbolPrice(string[] fsyms, string[] tsyms, bool tryConversion = false,
             string e = null);
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace CryptoCompare_Api.Clients
         ///     30]
         /// </param>
         /// <returns></returns>
-        Task<SingleSymbolPrice> GetSingleSymbolPrice(string fsym, string[] tsyms, bool? tryConversion = null,
+        Task<SingleSymbolPrice> GetSingleSymbolPrice(string fsym, string[] tsyms, bool tryConversion = false,
             string e = null);
 
         /// <summary>

@@ -6,6 +6,6 @@ namespace CryptoCompare_Api.Models.Responses.Toplist
     {
         [JsonProperty("Response")] public string Response { get; set; }
 
-        [JsonProperty("Data")] public TopExchangesVolumeDataByPairData[] Data { get; set; }
+        [JsonProperty("Data")] public ToplistData[] Data { get; set; }
     }
 }
