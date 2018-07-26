@@ -7,6 +7,18 @@
 ## Installation
 This Crypto Compare api wrapper library is available on [NuGet](https://www.nuget.org/packages/CryptoCompareAsyncApi/)
 
+## Basic Usage
+````csharp
+// Using ctor
+ var client = new CryptoCompareClient();
+ var response = await client..OtherClient.GetCoinList();
+ 
+
+// Using Singleton 
+var btcId = 1182;
+var btc = await CryptoCompareClient.Instance.OtherClient.GetSocialStat(btcId);
+````
+
 Package manager
 ````
 Install-Package CryptoCompareAsyncApi
