@@ -6,6 +6,6 @@ namespace CryptoCompare_Api.Models.Responses.HistoricalData
     {
         [JsonProperty("time")] public long Time { get; set; }
 
-        [JsonProperty("volume")] public double Volume { get; set; }
+        [JsonProperty("volume")] public string Volume { get; set; }
     }
 }

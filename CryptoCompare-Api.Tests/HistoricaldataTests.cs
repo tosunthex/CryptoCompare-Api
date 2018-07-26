@@ -40,7 +40,7 @@ namespace CryptoCompare.Tests
                 await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDailyExchangeVolume("USD", null, null,
                     limit);
             Assert.Equal("Got the data", response.Message);
-            Assert.Equal(limit + 1, response.Data.Length);
+            Assert.Equal(limit+1, response.Data.Length);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace CryptoCompare.Tests
                 await _cryptoCompareClient.HistoricalDataClient.GetHistoricalHourlyExchangeVolume("USD", null, null,
                     limit);
             Assert.Equal("Got the data", response.Message);
-            Assert.Equal(limit + 1, response.Data.Length);
+            Assert.Equal(limit+1, response.Data.Length);
         }
 
         [Fact]
