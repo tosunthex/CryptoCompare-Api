@@ -5,7 +5,7 @@
     <PackageVersion>1.0.0</PackageVersion>
     <title>Crypto Compare Async Api</title>
     <Authors>Levent Saatci</Authors>
-    <Description>.Net and .Net Core async client for Crypto Compare newest Min-API</Description>
+    <Description>.Net and .Net Standart Crypto Compare async client for newest Min-API</Description>
     <Copyright>Copyright 2018 (c). All rights reserved.</Copyright>
     <PackageTags>cryptocompare cryptocompare-api cryptocurrency bitcoin eth etherium btc xrp ripple ltc litecoin dotnet-core dotnet-standard dotnet async cryptocurrencies</PackageTags>
     <PackageLicenseUrl>http://choosealicense.com/licenses/bsd-2-clause/</PackageLicenseUrl>
