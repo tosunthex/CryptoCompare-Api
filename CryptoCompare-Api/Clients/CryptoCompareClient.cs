@@ -33,15 +33,20 @@ namespace CryptoCompare_Api.Clients
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        internal virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            if (!_isDisposed)
+            if (_isDisposed)
             {
-                if (disposing) _httpClient?.Dispose();
-                _isDisposed = true;
+                return;
             }
+            if (disposing)
+            {
+                _httpClient?.Dispose();
+            }
+            _isDisposed = true;
         }
     }
 }
