@@ -2,7 +2,7 @@
 
 namespace CryptoCompare_Api.Models.Responses.Streaming
 {
-    public class SubsWatchlist : Dictionary<string, SubsWatchlistCrypto>
+    public class SubsWatchlist : Dictionary<string, ConversionInfo>
     {
     }
 }
