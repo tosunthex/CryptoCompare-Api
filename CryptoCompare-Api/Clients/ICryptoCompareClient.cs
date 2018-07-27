@@ -2,7 +2,7 @@
 
 namespace CryptoCompare_Api.Clients
 {
-    public interface ICryptoCompareClient : IDisposable
+    public interface ICryptoCompareClient
     {
         INewsClient NewsClient { get; }
 

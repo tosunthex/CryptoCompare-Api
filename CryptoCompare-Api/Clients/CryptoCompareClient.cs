@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace CryptoCompare_Api.Clients
 {
-    public class CryptoCompareClient : ICryptoCompareClient
+    public class CryptoCompareClient : ICryptoCompareClient, IDisposable
     {
         private static readonly Lazy<CryptoCompareClient> Lazy =
             new Lazy<CryptoCompareClient>(() => new CryptoCompareClient());

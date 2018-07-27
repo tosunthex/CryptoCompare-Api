@@ -6,17 +6,17 @@ namespace CryptoCompare_Api.Parameters
 {
     public static class PriceApiUrls
     {
-        public static Uri MultipleSymbolFullData(string[] fsyms, string[] tsyms, bool tryConversation, string e = null)
+        public static Uri MultipleSymbolFullData(string[] fsyms, string[] tsyms, bool tryConversation, string e)
         {
             return CreatePriceUrl("pricemultifull", tryConversation, fsyms, tsyms, new[] {e});
         }
 
-        public static Uri MultipleSymbolPrice(string[] fsyms, string[] tsyms, bool tryConversation, string e = null)
+        public static Uri MultipleSymbolPrice(string[] fsyms, string[] tsyms, bool tryConversation, string e)
         {
             return CreatePriceUrl("pricemulti", tryConversation, fsyms, tsyms, new[] {e});
         }
 
-        public static Uri SingleSymbolPrice(string fsym, string[] tsyms, bool tryConversation, string e = null)
+        public static Uri SingleSymbolPrice(string fsym, string[] tsyms, bool tryConversation, string e)
         {
             return CreatePriceUrl("price", tryConversation, new[] {fsym}, tsyms, new[] {e});
         }
