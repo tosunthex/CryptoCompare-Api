@@ -3,7 +3,6 @@
 
 
 
-
 ## Installation
 This Crypto Compare api wrapper library is available on [NuGet](https://www.nuget.org/packages/CryptoCompareAsyncApi/)
 
