@@ -27,9 +27,14 @@ namespace CryptoCompare_Api.Clients
             return await GetAsync<FeedAndCategory>(NewsApiUrls.FeedsAndCategories()).ConfigureAwait(false);
         }
 
-        public async Task<News> GetNews(string[] feeds = null, string[] categories = null,
-            string[] excludeCategories = null, long? its = null,
-            string lang = null, string sort = null)
+        public async Task<News> GetNews()
+        {
+            return await GetAsync<News>(NewsApiUrls.News(null, null, null, null, null, null))
+                .ConfigureAwait(false);
+        }
+
+        public async Task<News> GetNews(string[] feeds, string[] categories,string[] excludeCategories, long? its,
+            string lang, string sort)
         {
             return await GetAsync<News>(NewsApiUrls.News(feeds, categories, excludeCategories, its, lang, sort))
                 .ConfigureAwait(false);

@@ -6,19 +6,22 @@ namespace CryptoCompare_Api.Parameters
 {
     public static class PriceApiUrls
     {
-        public static Uri MultipleSymbolFullData(string[] fsyms, string[] tsyms, bool tryConversation, string e)
+        public static Uri MultipleSymbolFullData(string[] fsyms, string[] tsyms, bool? tryConversation, string e)
         {
-            return CreatePriceUrl("pricemultifull", tryConversation, fsyms, tsyms, new[] {e});
+            var tryCon = tryConversation ?? false;
+            return CreatePriceUrl("pricemultifull", tryCon, fsyms, tsyms, new[] {e});
         }
 
-        public static Uri MultipleSymbolPrice(string[] fsyms, string[] tsyms, bool tryConversation, string e)
+        public static Uri MultipleSymbolPrice(string[] fsyms, string[] tsyms, bool? tryConversation, string e)
         {
-            return CreatePriceUrl("pricemulti", tryConversation, fsyms, tsyms, new[] {e});
+            var tryCon = tryConversation ?? false;
+            return CreatePriceUrl("pricemulti", tryCon, fsyms, tsyms, new[] {e});
         }
 
-        public static Uri SingleSymbolPrice(string fsym, string[] tsyms, bool tryConversation, string e)
+        public static Uri SingleSymbolPrice(string fsym, string[] tsyms, bool? tryConversation, string e)
         {
-            return CreatePriceUrl("price", tryConversation, new[] {fsym}, tsyms, new[] {e});
+            var tryCon = tryConversation ?? false;
+            return CreatePriceUrl("price", tryCon, new[] {fsym}, tsyms, new[] {e});
         }
 
         public static Uri GenerateCustomAverage(string fsym, string[] tsyms, string[] e)

@@ -18,7 +18,7 @@ namespace CryptoCompare.Tests
         public async Task Historical_Daily_OHLCV()
         {
             var response =
-                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDailyOHLCV("BTC", "USD", "CCCAGG", 3, 5);
+                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDailyOhlcv("BTC", "USD", "CCCAGG", 3,5,null);
             Assert.Equal("Success", response.Response);
         }
 
@@ -38,7 +38,7 @@ namespace CryptoCompare.Tests
             var limit = 10;
             var response =
                 await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDailyExchangeVolume("USD", null, null,
-                    limit);
+                    limit,null);
             Assert.Equal("Got the data", response.Message);
             Assert.Equal(limit+1, response.Data.Length);
         }
@@ -48,7 +48,7 @@ namespace CryptoCompare.Tests
         {
             var tsyms = new[] {"USD", "EUR"};
             var response =
-                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDayOhlcvForaTS("BTC", tsyms, "1452680400");
+                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalDayOhlcvForaTs("BTC", tsyms, "1452680400",null,null);
             Assert.Equal("BTC", response.Keys.First());
             Assert.Equal("USD", response.Values.First().Keys.First());
         }
@@ -59,7 +59,7 @@ namespace CryptoCompare.Tests
             var limit = 10;
             var response =
                 await _cryptoCompareClient.HistoricalDataClient.GetHistoricalHourlyExchangeVolume("USD", null, null,
-                    limit);
+                    limit,null);
             Assert.Equal("Got the data", response.Message);
             Assert.Equal(limit+1, response.Data.Length);
         }
@@ -68,7 +68,7 @@ namespace CryptoCompare.Tests
         public async Task Historical_Hourly_OHLCV()
         {
             var response =
-                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalHourlyOHLCV("BTC", "USD", "CCCAGG", 3, 5);
+                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalHourlyOhlcv("BTC", "USD", "CCCAGG", 3, 5,null);
             Assert.Equal("Success", response.Response);
         }
 
@@ -76,7 +76,7 @@ namespace CryptoCompare.Tests
         public async Task Historical_Minute_OHLCV()
         {
             var response =
-                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalMinuteOHLCV("BTC", "USD", "CCCAGG", 3, 5);
+                await _cryptoCompareClient.HistoricalDataClient.GetHistoricalMinuteOhlcv("BTC", "USD", "CCCAGG", 3, 5,null);
             Assert.Equal("Success", response.Response);
         }
     }

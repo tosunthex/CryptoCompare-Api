@@ -30,7 +30,7 @@ namespace CryptoCompare.Tests
         public async Task Multiple_Symbol_Fulldata_BTC_ETH_To_USD_EUR()
         {
             var priceMultipleFulldata =
-                await _cryptoCompareClient.PriceClient.GetMultipleSymbolFullData(new[] {"BTC,ETH"}, new[] {"USD,EUR"});
+                await _cryptoCompareClient.PriceClient.GetMultipleSymbolFullDataAsync(new[] {"BTC,ETH"}, new[] {"USD,EUR"});
             Assert.Equal("BTC", priceMultipleFulldata.Raw.Values.First().Values.First().Fromsymbol);
             Assert.Equal("USD", priceMultipleFulldata.Raw.Values.First().Values.First().Tosymbol);
             Assert.Equal("CryptoCompare Index", priceMultipleFulldata.Display.Values.First().Values.First().Market);

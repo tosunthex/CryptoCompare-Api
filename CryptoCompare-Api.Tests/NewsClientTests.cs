@@ -21,7 +21,7 @@ namespace CryptoCompare.Tests
             var feeds = new[] {"coindesk", "cryptocompare"};
             var categories = new[] {"ICO"};
             var excludeCategories = new[] {"Exchange", "BTC"};
-            var news = await _cryptoCompareClient.NewsClient.GetNews(feeds, categories, excludeCategories);
+            var news = await _cryptoCompareClient.NewsClient.GetNews(feeds, categories, excludeCategories,null,null,null);
             Assert.Equal("News list successfully returned", news.Message);
         }
 
