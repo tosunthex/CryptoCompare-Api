@@ -27,6 +27,12 @@ namespace CryptoCompare_Api.Clients
         /// <summary>
         ///     Returns news articles from the providers that CryptoCompare has integrated with.
         /// </summary>
+        /// <returns></returns>
+        Task<News> GetNews();
+
+        /// <summary>
+        ///     Returns news articles from the providers that CryptoCompare has integrated with.
+        /// </summary>
         /// <param name="feeds">Specific news feeds to retrieve news from [Max character length: 400]</param>
         /// <param name="categories">Category of news articles to return [Max character length: 400]</param>
         /// <param name="excludeCategories">News article categories to exclude from results [Max character length: 400]</param>
@@ -34,7 +40,7 @@ namespace CryptoCompare_Api.Clients
         /// <param name="lang">Preferred language - English (EN) or Portuguese (PT) [Max character length: 4]</param>
         /// <param name="sort">The order to return news articles - latest or popular [Max character length: 8]</param>
         /// <returns></returns>
-        Task<News> GetNews(string[] feeds = null, string[] categories = null, string[] excludeCategories = null,
-            long? its = null, string lang = null, string sort = null);
+        Task<News> GetNews(string[] feeds, string[] categories, string[] excludeCategories,
+            long? its, string lang, string sort);
     }
 }
