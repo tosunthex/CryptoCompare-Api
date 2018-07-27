@@ -12,7 +12,7 @@ namespace CryptoCompare_Api.Clients
         }
 
         public async Task<HistoricalOhlcv> GetHistoricalDailyOhlcv(string fsym, string tsym, string e,
-            int? aggregate, int? limit,string toTs = null)
+            int? aggregate, int? limit,string toTs)
         {
             return await GetAsync<HistoricalOhlcv>(
                     HistoricalDataApiUrls.HistoricalDailyOhlcv(fsym, tsym, e, aggregate, limit, toTs))
