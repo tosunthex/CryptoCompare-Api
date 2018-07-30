@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard1.3;netstandard1.5;net461;net45</TargetFrameworks>
     <IncludeSymbols>True</IncludeSymbols>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.2.1</PackageVersion>
     <title>Crypto Compare Async Api</title>
     <Authors>Levent Saatci</Authors>
     <Description>.Net and .Net Standart Crypto Compare async client for newest Min-API</Description>
@@ -18,6 +18,7 @@
     <Product>Crypto Compare Async Api</Product>
     <RepositoryUrl>https://github.com/tosunthex/CryptoCompare-Api/tree/master</RepositoryUrl>
     <PackageReleaseNotes>for more information please check the project page or https://min-api.cryptocompare.com/</PackageReleaseNotes>
+    <Version>1.2.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile></DocumentationFile>
