@@ -11,7 +11,7 @@ namespace CryptoCompare_Api.Clients
         {
         }
 
-        public async Task<Socialstat> GetSocialStat(int id)
+        public async Task<Socialstat> GetSocialStat(long id)
         {
             return await GetAsync<Socialstat>(OtherApiUrls.SocialStats(id)).ConfigureAwait(false);
         }
