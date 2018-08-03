@@ -10,7 +10,7 @@ namespace CryptoCompare_Api.Clients
         ///     If called with the id of a cryptopian you just get data from our website that
         ///     is available to the public
         /// </summary>
-        /// <param name="long">The id of the coin/exchange you want social data for</param>
+        /// <param name="id">The id of the coin/exchange you want social data for</param>
         /// <returns></returns>
         Task<Socialstat> GetSocialStat(long id);
 
