@@ -11,7 +11,7 @@ namespace CryptoCompare_Api.Parameters
             return QueryStringService.AppendQueryString("all/coinlist", new Dictionary<string, string>());
         }
 
-        public static Uri SocialStats(int id)
+        public static Uri SocialStats(long id)
         {
             return QueryStringService.AppendQueryString("socialstats/", new Dictionary<string, string>
             {
