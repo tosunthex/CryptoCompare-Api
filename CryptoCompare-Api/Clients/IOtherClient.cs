@@ -26,5 +26,20 @@ namespace CryptoCompare_Api.Clients
         /// </summary>
         /// <returns></returns>
         Task<Miningequipment> GetMiningEquipment();
+
+        /// <summary>
+        /// Returns all the exchanges that CryptoCompare has integrated with.
+        /// </summary>
+        /// <returns></returns>
+        Task<ExchangesListResponse> GetAllExchanges();
+
+        /// <summary>
+        /// Returns all the exchanges that CryptoCompare has integrated with and their status,
+        /// including whether or not they are excluded from pricing and volumes.
+        /// </summary>
+        /// <returns></returns>
+        Task<CccaggExchanges> GetCccaggExchanges();
+
+        //Task<RateLimitStats> GetRateLimit(string rateLimit);
     }
 }

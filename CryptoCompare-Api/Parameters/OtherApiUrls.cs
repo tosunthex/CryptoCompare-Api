@@ -23,5 +23,20 @@ namespace CryptoCompare_Api.Parameters
         {
             return QueryStringService.AppendQueryString("miningequipment/", new Dictionary<string, string>(), false);
         }
+
+        public static Uri AllExchanges()
+        {
+            return QueryStringService.AppendQueryString("all/exchanges", new Dictionary<string, string>());
+        }
+
+        public static Uri AllCccaggExchanges()
+        {
+            return QueryStringService.AppendQueryString("all/cccaggexchanges", new Dictionary<string, string>());
+        }
+
+        public static Uri StatsRateLimit(string rateLimit)
+        {
+            return QueryStringService.AppendQueryString("stats/"+rateLimit+"/limit", new Dictionary<string, string>());
+        }
     }
 }

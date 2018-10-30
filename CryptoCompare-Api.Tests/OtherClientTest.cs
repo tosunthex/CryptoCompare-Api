@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
+using CryptoCompare_Api.Parameters;
 using Xunit;
 
 namespace CryptoCompare.Tests
@@ -36,6 +39,21 @@ namespace CryptoCompare.Tests
             var response = await _cryptoCompareClient.OtherClient.GetMiningEquipment();
             Assert.Equal("Mining contracts data successfully returned", response.Message);
             Assert.Equal("Success", response.Response);
+        }
+
+        [Fact]
+        public async Task All_Exchages()
+        {
+            var response = await _cryptoCompareClient.OtherClient.GetAllExchanges();
+            Assert.Equal("Cryptsy",response.First().Key);
+            Assert.Equal(161,response["Binance"].Count);
+        }
+        [Fact]
+        public async Task Cccagg_Exchages()
+        {
+            var response = await _cryptoCompareClient.OtherClient.GetCccaggExchanges();
+            Assert.Equal("Cryptsy", response.First().Key);
+            Assert.True(response["Coinbase"].IsActive);
         }
     }
 }

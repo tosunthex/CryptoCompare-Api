@@ -25,5 +25,20 @@ namespace CryptoCompare_Api.Clients
         {
             return await GetAsync<Miningequipment>(OtherApiUrls.MiningEquipment()).ConfigureAwait(false);
         }
+
+        public async Task<ExchangesListResponse> GetAllExchanges()
+        {
+            return await GetAsync<ExchangesListResponse>(OtherApiUrls.AllExchanges()).ConfigureAwait(false);
+        }
+
+        public async Task<CccaggExchanges> GetCccaggExchanges()
+        {
+            return await GetAsync<CccaggExchanges>(OtherApiUrls.AllCccaggExchanges()).ConfigureAwait(false);
+        }
+
+        //public async Task<RateLimitStats> GetRateLimit(string rateLimit)
+        //{
+        //    return await GetAsync<RateLimitStats>(OtherApiUrls.StatsRateLimit(rateLimit)).ConfigureAwait(false);
+        //}
     }
 }
