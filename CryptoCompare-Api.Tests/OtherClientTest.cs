@@ -12,7 +12,7 @@ namespace CryptoCompare.Tests
     {
         public OtherClientTest()
         {
-            _cryptoCompareClient = new CryptoCompareClient(new HttpClientHandler(), "API_Key");
+            _cryptoCompareClient = new CryptoCompareClient(new HttpClientHandler(), "ab56a1fcd21d7faaefdb8a01e5efb0b14242f3af589f32cfcf942b0aec5a7731");
         }
 
         private readonly CryptoCompareClient _cryptoCompareClient;
