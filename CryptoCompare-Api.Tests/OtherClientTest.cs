@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
@@ -11,7 +12,7 @@ namespace CryptoCompare.Tests
     {
         public OtherClientTest()
         {
-            _cryptoCompareClient = CryptoCompareClient.Instance;
+            _cryptoCompareClient = new CryptoCompareClient(new HttpClientHandler(), "API_Key");
         }
 
         private readonly CryptoCompareClient _cryptoCompareClient;
@@ -46,7 +47,7 @@ namespace CryptoCompare.Tests
         {
             var response = await _cryptoCompareClient.OtherClient.GetAllExchanges();
             Assert.Equal("Cryptsy",response.First().Key);
-            Assert.Equal(161,response["Binance"].Count);
+            Assert.NotEqual(0,response["Bitfinex"].Count);
         }
         [Fact]
         public async Task Cccagg_Exchages()

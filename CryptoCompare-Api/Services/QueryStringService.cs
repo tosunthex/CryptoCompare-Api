@@ -19,6 +19,10 @@ namespace CryptoCompare_Api.Services
         private static Uri CreateUrl(string path, Dictionary<string, string> parameter, bool useMinApi)
         {
             var urlParameters = new List<string>();
+            if (!string.IsNullOrEmpty(BaseApiUrls.ApiKey))
+            {
+                parameter.Add("api_key",BaseApiUrls.ApiKey);
+            }
             foreach (var par in parameter)
             {
                 urlParameters.Add(string.IsNullOrWhiteSpace(par.Value) ? null : $"{par.Key}={par.Value}");
@@ -31,6 +35,7 @@ namespace CryptoCompare_Api.Services
                 .ToArray();
 
             var url = encodedParams.Length > 0 ? $"{path}{string.Join(string.Empty, encodedParams)}" : path;
+            
             return useMinApi ? new Uri(BaseMinApiEndPoint, url) : new Uri(SiteApiEndpoint, url);
         }
     }

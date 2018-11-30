@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using CryptoCompare_Api.Parameters;
 
 namespace CryptoCompare_Api.Clients
 {
@@ -12,12 +13,16 @@ namespace CryptoCompare_Api.Clients
         private bool _isDisposed;
 
 
-        public CryptoCompareClient(HttpClientHandler httpClientHandler)
+        public CryptoCompareClient(HttpClientHandler httpClientHandler,string apiKey)
         {
             _httpClient = new HttpClient(httpClientHandler, true);
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                BaseApiUrls.ApiKey = apiKey;
+            }
         }
 
-        public CryptoCompareClient() : this(new HttpClientHandler())
+        public CryptoCompareClient() : this(new HttpClientHandler(),"")
         {
         }
 

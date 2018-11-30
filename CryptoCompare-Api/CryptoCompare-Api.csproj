@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.3;netstandard1.5;net461;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <IncludeSymbols>True</IncludeSymbols>
     <PackageVersion>1.2.1</PackageVersion>
     <title>Crypto Compare Async Api</title>
@@ -17,7 +17,11 @@
     <PackageId>CryptoCompareAsyncApi</PackageId>
     <Product>Crypto Compare Async Api</Product>
     <RepositoryUrl>https://github.com/tosunthex/CryptoCompare-Api/tree/master</RepositoryUrl>
-    <PackageReleaseNotes>for more information please check the project page or https://min-api.cryptocompare.com/</PackageReleaseNotes>
+    <PackageReleaseNotes>30/11/2018
+API key authentication implemented. To use API key authentication first you must get API key from https://www.cryptocompare.com/cryptopian/api-keys  
+For usage of API key you can check the OtherClientTest.cs file 
+
+for more information please check the project page or https://min-api.cryptocompare.com/</PackageReleaseNotes>
     <Version>1.2.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -29,14 +33,9 @@
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
-      <Version>5.2.2</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
     <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
       <Version>5.2.2</Version>
     </PackageReference>
