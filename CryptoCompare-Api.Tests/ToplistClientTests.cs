@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
 using Xunit;
@@ -7,12 +8,13 @@ namespace CryptoCompare.Tests
 {
     public class ToplistClientTests
     {
+        private readonly CryptoCompareClient _cryptoCompareClient;
         public ToplistClientTests()
         {
-            _cryptoCompareClient = CryptoCompareClient.Instance;
+            _cryptoCompareClient = new CryptoCompareClient(new HttpClientHandler(), "ab56a1fcd21d7faaefdb8a01e5efb0b14242f3af589f32cfcf942b0aec5a7731");
         }
 
-        private readonly CryptoCompareClient _cryptoCompareClient;
+        
 
         [Fact]
         public async Task TopExchanges_Full_Response_Success_BTC_TO_USD()

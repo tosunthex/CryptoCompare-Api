@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CryptoCompare_Api.Clients
+﻿namespace CryptoCompare_Api.Clients
 {
     public interface ICryptoCompareClient
     {

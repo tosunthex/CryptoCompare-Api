@@ -37,6 +37,7 @@ namespace CryptoCompare_Api.Clients
             catch (Exception e)
             {
                 var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+                
                 var errorMessage =
                     $"{errorResponse.Type} : {errorResponse.Message} {errorResponse.ErrorSummary} {errorResponse.Path} {e.Message}";
                 throw new HttpRequestException(errorMessage);

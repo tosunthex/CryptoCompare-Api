@@ -1,9 +1,7 @@
 ﻿using System.Linq;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using CryptoCompare_Api.Clients;
-using CryptoCompare_Api.Parameters;
 using Xunit;
 
 namespace CryptoCompare.Tests
