@@ -44,14 +44,14 @@ namespace CryptoCompare.Tests
         public async Task All_Exchages()
         {
             var response = await _cryptoCompareClient.OtherClient.GetAllExchanges();
-            Assert.Equal("Cryptsy",response.First().Key);
+            Assert.True(response.ContainsKey("Cryptsy"));
             Assert.NotEqual(0,response["Bitfinex"].Count);
         }
         [Fact]
         public async Task Cccagg_Exchages()
         {
             var response = await _cryptoCompareClient.OtherClient.GetCccaggExchanges();
-            Assert.Equal("Cryptsy", response.First().Key);
+            Assert.True(response.ContainsKey("Cryptsy"));
             Assert.True(response["Coinbase"].IsActive);
         }
     }
